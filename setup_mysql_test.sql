@@ -6,9 +6,4 @@ GRANT SELECT ON performance_schema.* TO 'hbnb_test'@'localhost';
 
 
 
-
-
-
-
-
 FLUSH PRIVILEGES;

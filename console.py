@@ -114,6 +114,8 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, line):
+        """lets update the do_create function to allow for
+        object creation with given parameters"""
         try:
             if not line:
                 raise SyntaxError()

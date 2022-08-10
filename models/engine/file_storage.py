@@ -8,9 +8,19 @@ class FileStorage:
     __file_path = 'file.json'
     __objects = {}
 
-    def all(self):
-        """Returns a dictionary of models currently in storage"""
-        return FileStorage.__objects
+    def all(self, cls=None):
+        """  Update the prototype of def all(self) to def all(self, cls=None)
+        that returns the list of objects of one type of class.
+        Example below with State - it’s an optional filtering"""
+        if cls is not None:
+            if isinstance(cls, str):
+                cls = eval(cls)
+            cls_dict = {}
+            for k, v in self.__objects.items():
+                if isinstance(v, cls):
+                    cls_dict[k] = v
+            return cls_dict
+        return self.
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
@@ -50,12 +60,14 @@ class FileStorage:
             pass
 
     def delete(self, obj=None):
-        """Delete a given object from __objects, if it exists."""
+        """Add a new public instance method: def delete(self, obj=None):
+        to delete obj from __objects if it’s inside
+        if obj is equal to None, the method should not do anything"""
         try:
             del self.__objects["{}.{}".format(type(obj).__name__, obj.id)]
         except (AttributeError, KeyError):
             pass
 
     def close(self):
-        """Call the reload method."""
+        """reload method."""
         self.reload()

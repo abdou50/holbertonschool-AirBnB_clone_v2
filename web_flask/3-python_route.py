@@ -23,6 +23,7 @@ def helloc(text):
     return 'C {}'.format(txt)
 
 
+@app.route('/python/', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
 def hellod(text='is cool'):
     txt = text.replace('_', ' ')

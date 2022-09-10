@@ -26,7 +26,7 @@ def helloc(text):
 @app.route('/python/<text>', strict_slashes=False)
 def hellod(text='is cool'):
     txt = text.replace('_', ' ')
-    return 'python {}'.format(txt)
+    return 'Python {}'.format(txt)
 
 
 if __name__ == "__main__":

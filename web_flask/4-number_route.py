@@ -30,7 +30,7 @@ def hellod(text='is cool'):
     return 'Python {}'.format(txt)
 
 
-@app.route('/number/<n>', strict_slashes=False)
+@app.route('/number/<int:n>', strict_slashes=False)
 def hellon(n):
     if type(n) is int:
         return '{} is a number'.format(n)
